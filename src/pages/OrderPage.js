@@ -76,7 +76,7 @@ function OrderPage() {
     setLoading(true);
     try {
       const requests = furnitureTypes.flatMap(type =>
-        furnitureTypes.map(style =>
+        furnitureStyles.map(style =>
           fetch(`${API_BASE}/api/${style}/${type}`)
             .then(res => res.json())
             .then(data => ({ ...data, style, type }))
