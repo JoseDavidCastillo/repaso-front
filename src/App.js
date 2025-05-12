@@ -1,20 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import OrderPage from './pages/OrderPage';
 
 function App() {
-  const [user, setUser] = useState(null);
-
   return (
-    <div>
-      {user ? (
-        <OrderPage user={user} />
-      ) : (
-        <LoginPage onLogin={(name) => setUser(name)} />
-      )}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/order" element={<OrderPage />} />
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
-
